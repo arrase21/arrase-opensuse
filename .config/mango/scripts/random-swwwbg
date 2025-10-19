@@ -1,0 +1,18 @@
+#! /usr/bin/env bash
+
+wall=$(find ~/Pictures/wallpapers/ -maxdepth 1 | shuf -n 1)
+
+cp "$wall" ~/.config/wall.png &&
+  swww img "$wall" \
+    --transition-type=any \
+    --transition-step=60 \
+    --transition-fps=60 \
+    --transition-duration=.7 &&
+    wallust run "$wall" -s &
+
+sleep 1
+pkill waybar
+sleep 0.3
+pkill swaync-client
+waybar -c ~/.config/mango/waybar/config -s ~/.config/mango/waybar/style.css >/dev/null 2>&1 &
+swaync-client -rs

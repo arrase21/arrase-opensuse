@@ -1,0 +1,9 @@
+# colors-mangowc template for MangoWC
+rootcolor={{background | strip | to_rgba}}
+bordercolor={{color0 | strip | to_rgba}}
+focuscolor={{color4 | strip | to_rgba}}
+maxmizescreencolor={{color2 | strip | to_rgba}}
+urgentcolor={{color1 | strip | to_rgba}}
+scratchpadcolor={{color3 | strip | to_rgba}}
+globalcolor={{color7 | strip | to_rgba}}
+overlaycolor={{color6 | strip | to_rgba}}

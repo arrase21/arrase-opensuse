@@ -1,0 +1,9 @@
+# Ensure Omarchy bins are in the path
+export OPENSUSE_PATH=$HOME/.local/
+export PATH=$OPENSUSE_PATH/bin/:$PATH
+
+# Set default terminal and editor
+source ~/.config/uwsm/default
+
+# Activate mise if present on the system
+#omarchy-cmd-present mise && eval "$(mise activate bash)"
