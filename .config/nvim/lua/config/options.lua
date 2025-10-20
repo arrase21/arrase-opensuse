@@ -49,37 +49,31 @@ vim.o.wildmode       = 'longest:full,full'
 -- Special UI symbols
 vim.o.fillchars      = 'eob: ,fold:╌'
 vim.o.listchars      = "tab:→ ,trail:·,extends:…,precedes:…"
+
 -- Folds
--- vim.o.foldlevel   = 1
--- vim.o.foldmethod  = 'indent'
--- vim.o.foldnestmax = 10
+vim.o.foldlevel   = 1
+vim.o.foldmethod  = 'indent'
+vim.o.foldnestmax = 10
 
-if vim.fn.has('nvim-0.10') == 0 then
-  vim.o.termguicolors = true
-end
-
-if vim.fn.has('nvim-0.10') == 1 then
-  vim.o.foldtext = ''
-end
-
+-- Neovim version specific
 if vim.fn.has('nvim-0.11') == 1 then
-  vim.o.winborder = 'rounded'
+  vim.o.winborder = 'double' -- Use border in floating windows
+  -- Disable "press-enter" for messages not from manually executing a command
   vim.o.messagesopt = 'wait:500,history:500'
-  local make_set_messagesopt = function(value)
-    return vim.schedule_wrap(function() vim.o.messagesopt = value end)
-  end
+  local make_set_messagesopt = function(value) return vim.schedule_wrap(function() vim.o.messagesopt = value end) end
   _G.Config.new_autocmd('CmdlineEnter', '*', make_set_messagesopt('hit-enter,history:500'))
   _G.Config.new_autocmd('CmdlineLeave', '*', make_set_messagesopt('wait:500,history:500'))
 end
 
 if vim.fn.has('nvim-0.12') == 1 then
-  vim.o.pummaxwidth = 100
-  vim.o.completefuzzycollect = 'keyword,files,whole_line'
+  vim.o.pummaxwidth = 100 -- Limit maximum width of popup menu
+  vim.o.completefuzzycollect = 'keyword,files,whole_line' -- Use fuzzy matching when collecting candidates
   vim.o.completetimeout = 100
-  vim.o.pumborder = 'rounded'
-  require('vim._extui').enable({ enable = true })
-end
 
+  vim.o.pumborder = 'double'
+
+  require('vim._extui').enable({ enable = true })
+  end
 -- Editing ====================================================================
 vim.o.autoindent    = true
 vim.o.expandtab     = true
@@ -108,9 +102,9 @@ vim.o.grepprg       = 'rg --vimgrep'
 
 vim.o.spelllang     = 'en,uk,ru'
 vim.o.spelloptions  = 'camel'
-vim.o.iskeyword     = '@,48-57,_,192-255,-'
-vim.o.dictionary    = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
-vim.o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
+-- vim.o.iskeyword     = '@,48-57,_,192-255,-'
+-- vim.o.dictionary    = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
+-- vim.o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
 
 -- Clipboard
 vim.o.clipboard     = vim.env.SSH_TTY and '' or 'unnamedplus'
@@ -147,7 +141,7 @@ local diagnostic_opts = {
   float = {
     source = "always",
     header = "",
-    border = "single",
+    border = "double",
     focusable = false,
   },
   virtual_text = true,

@@ -1,0 +1,128 @@
+add_newline = false
+palette = "catppuccin_mocha"
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo  = "#f2cdcd"
+pink      = "#f5c2e7"
+mauve     = "#cba6f7"
+red       = "#f38ba8"
+maroon    = "#eba0ac"
+peach     = "#fab387"
+yellow    = "#f9e2af"
+green     = "#a6e3a1"
+teal      = "#94e2d5"
+sky       = "#89dceb"
+sapphire  = "#74c7ec"
+blue      = "#89b4fa"
+lavender  = "#b4befe"
+text      = "#cdd6f4"
+subtext1  = "#bac2de"
+subtext0  = "#a6adc8"
+overlay2  = "#9399b2"
+overlay1  = "#7f849c"
+overlay0  = "#6c7086"
+surface2  = "#585b70"
+surface1  = "#45475a"
+surface0  = "#313244"
+base      = "#1e1e2e"
+mantle    = "#181825"
+crust     = "#11111b"
+
+format = """
+
+$username 󰜥 $directory $git_branch
+$character"""
+
+[character]
+# Note the use of Catppuccin color 'peach'
+success_symbol = "[[ 󰄛](subtext0) ❯](mauve)"
+error_symbol = "[[ 󰄛](red) ❯](red)"
+vimcmd_symbol = "[󰄛 ❮](subtext1)" # For use with zsh-vi-mode
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[git_branch]
+style = "bg: sky"
+symbol = "󰘬"
+truncation_length = 12
+format = "󰜥 [](bold fg:sky)[$symbol $branch(:$remote_branch)](fg:black bg:sky)[ ](bold fg:sky)"
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = " "
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[  PICKING](bold sky)"
+
+[git_status]
+conflicted = "[](mauve) "
+ahead = ""
+behind = " ⇣ "
+diverged = " ⇵ "
+untracked = "[?](mauve)"
+stashed = "📦"
+modified = "[📝](mauve)"
+# staged = '[++\($count\)](mauve)'
+renamed = " 󰑕 "
+deleted = "[ ](mauve)"
+
+# [git_status]
+# conflicted = "  "
+# ahead = " ⇡ "
+# stashed = "  "
+# modified = "  "
+# staged = '[++\($count\)](green)'
+
+
+[line_break]
+disabled = false
+
+[username]
+style_user = "bold bg:mauve fg:black"
+style_root = "red bold"
+format = '[](bold fg:mauve)[ $user](bold bg:mauve fg:black)[](bold fg:mauve)'
+disabled = false
+show_always = true
+
+[directory]
+home_symbol = "  "
+read_only = "  "
+style = "bg:teal fg:black"
+truncation_length = 6
+truncation_symbol = " ••/"
+format = '[](bold fg:teal)[󰉋 $path]($style)[](bold fg:teal)'
+
+[directory.substitutions]
+"Desktop" = "  "
+"Documents" = "  "
+"Downloads" = "  "
+"Music" = " 󰎈 "
+"Pictures" = "  "
+"Videos" = "  "
+"GitHub" = " 󰊤 "
+
+# [hostname]
+# ssh_only = false
+# format =  "[•$hostname](bg:cyan bold fg:black)[](bold fg:cyan)"
+# trim_at = ".companyname.com"
+# disabled = false
+
+
+# [memory_usage]
+# disabled = true
+# threshold = -1
+# symbol = " "
+# style = "bold dimmed green"
+
+# [time]
+# disabled = true
+# format = '🕙[\[ $time \]]($style) '
+# time_format = "%T"
+
+
+# [cmd_duration]
+# min_time = 0
+# format = '[](bold fg:yellow)[󰪢 $duration](bold bg:yellow fg:black)[](bold fg:yellow)'

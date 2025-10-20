@@ -30,6 +30,7 @@ now(function() require('mini.starter').setup() end)
 
 now(function() require('mini.tabline').setup() end)
 
+
 -- Future part of 'mini.detect'
 -- TODO: Needs some condition to stop the comb.
 _G.detect_bigline = function(threshold)
@@ -145,7 +146,6 @@ end)
 later(function() require('mini.git').setup() end)
 
 later(function() require('mini.indentscope').setup() end)
-
 
 later(function() require('mini.pairs').setup({ modes = { insert = true, command = true, terminal = false } }) end)
 

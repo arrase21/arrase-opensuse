@@ -15,22 +15,3 @@ for _, file in ipairs(vim.fn.globpath(lsp_dir, "*.lua", false, true)) do
     vim.lsp.enable(name)
   end
 end
-
--- Formatting =================================================================
--- later(function()
---   add('stevearc/conform.nvim')
---
---   require('conform').setup({
---     -- Map of filetype to formatters
---     formatters_by_ft = {
---       javascript = { 'prettier' },
---       json = { 'prettier' },
---       lua = { 'stylua' },
---       go = { "goimports-reviser", "gofumpt", "golines" },
---     },
---     format_on_save = {
---       lsp_fallback = true,
---       timeout_ms = 3000,
---     },
---   })
--- end)
