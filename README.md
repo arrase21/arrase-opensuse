@@ -8,6 +8,8 @@ A minimal setup for **openSUSE Tumbleweed** using Mangowc 🧊
 Includes launchers, notifications, editor  — fully configured!
 
 ---
+### 🎥 Demo Video
+![Demo](assets/demo.gif)
 
 ### 🏠 HOME
 <img src="assets/251017_11h13m29s_screenshot.png" width="800"/>
